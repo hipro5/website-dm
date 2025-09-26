@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منحل الضحى</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.css" integrity="sha512-FaAQuIjt+2N5Gsc2gLBIvEBCdftUaAlLAZ0iQ1T94vJ1N/gt3hZ26J3r+p6CFcFhMws3p3hQG8nK0B79L1NB0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #ffc107;
+            --secondary-color: #8B4513;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .logo h1 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/product3.jpg') no-repeat center center/cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        section h2.section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery a {
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+
+        .gallery a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .video-placeholder {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                padding-top: 1rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="/logo.jpg" alt="شعار منحل الضحى">
+                    <h1>منحل الضحى</h1>
+                </div>
+                <ul>
+                    <li><a href="#hero">الرئيسية</a></li>
+                    <li><a href="#about">عنّا</a></li>
+                    <li><a href="#products">منتجاتنا</a></li>
+                    <li><a href="#community">مجتمعنا</a></li>
+                    <li><a href="#videos">فيديوهات</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <h2>أجود أنواع عسل النحل الطبيعي</h2>
+            <p>منحل الضحى - طبيعي 100% من افضل مناحل مصر</p>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title">عن منحلنا</h2>
+            <div class="about-content">
+                <p>
+                    مرحباً بكم في منحل الضحى، مصدركم الموثوق لأجود أنواع عسل النحل الطبيعي. نحن نفخر بكوننا أحد أكبر المناحل في مصر، حيث نلتزم بأعلى معايير الجودة لنقدم لكم عسلاً نقياً وصافياً، تماماً كما تنتجه الطبيعة. شغفنا بتربية النحل وحبنا للطبيعة يدفعنا لإنتاج عسل لا مثيل له في الطعم والفائدة.
+                </p>
+            </div>
+        </section>
+
+        <section id="products" class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="gallery">
+                <a href="/product1.jpg"><img src="/product1.jpg" alt="عسل الدوحة"></a>
+                <a href="/product2.jpg"><img src="/product2.jpg" alt="جرار عسل"></a>
+                <a href="/product3.jpg"><img src="/product3.jpg" alt="عسل الداد"></a>
+                <a href="/product4.jpg"><img src="/product4.jpg" alt="عسل نوارة"></a>
+                <a href="/product5.jpg"><img src="/product5.jpg" alt="أنواع العسل"></a>
+                <a href="/product6.jpg"><img src="/product6.jpg" alt="منتج زجاجة سوداء"></a>
+                <a href="/product8.jpg"><img src="/product8.jpg" alt="عسل بالميزان"></a>
+                <a href="/product10 (3).jpg"><img src="/product10 (3).jpg" alt="خليط حبوب اللقاح"></a>
+                <a href="/product11 (3).jpg"><img src="/product11 (3).jpg" alt="منتجات تجميلية"></a>
+            </div>
+        </section>
+
+        <section id="community" class="container">
+            <h2 class="section-title">ذكريات مجتمعنا</h2>
+            <div class="gallery">
+                <a href="/communty1.jpg"><img src="/communty1.jpg" alt="بائع عسل في منحل الضحى"></a>
+                <a href="/communty2.jpg"><img src="/communty2.jpg" alt="طفل يحمل قرص عسل"></a>
+                <a href="/communty3.jpg"><img src="/communty3.jpg" alt="بائعون في محل عسل"></a>
+                <a href="/communty4.jpg"><img src="/communty4.jpg" alt="زبون في محل عسل"></a>
+                <a href="/communty5.jpg"><img src="/communty5.jpg" alt="صورة سيلفي في محل العسل"></a>
+                <a href="/communty6.jpg"><img src="/communty6.jpg" alt="أصدقاء في محل العسل"></a>
+                <a href="/communty7.jpg"><img src="/communty7.jpg" alt="زيارة لمحل العسل"></a>
+                <a href="/communty8.jpg"><img src="/communty8.jpg" alt="أطفال مع قرص عسل"></a>
+                <a href="/communty9.jpg"><img src="/communty9.jpg" alt="شباب يحملون منتجات العسل"></a>
+                <a href="/communty10.jpg"><img src="/communty10.jpg" alt="صورة تذكارية في محل العسل"></a>
+            </div>
+        </section>
+
+        <section id="videos" class="container">
+            <h2 class="section-title">فيديوهات</h2>
+            <div class="video-placeholder">
+                <p>قريباً... سنعرض لكم فيديوهات رائعة عن منتجاتنا وعالم النحل الساحر.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <h3>تواصل معنا</h3>
+            <div class="contact-info">
+                <p>للتواصل والطلبات:</p>
+                <p>📞 01007742668 | 📞 01114002621</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/MnahlAldhy?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2024 منحل الضحى. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js" integrity="sha512-V1oSfiNJ+OLDF+kXvXnUkbbTQqzaMCLmM5PLJvJ5l9TFja95VLlvIeG7orYCV2G05Y2D82CgC_hD199g3M91fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize SimpleLightbox
+            new SimpleLightbox('.gallery a', {
+                // options
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
